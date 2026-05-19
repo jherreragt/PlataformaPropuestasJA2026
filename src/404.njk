@@ -1,0 +1,246 @@
+---
+permalink: "404.html"
+---
+
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Red Ciudadana</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+
+
+    <!-- slider-start -->
+    <div class="video-container w-100">
+        <video muted autoplay loop>
+            <source src="/assets/SLIDER-RED.mp4" type="video/mp4; "/>        
+        </video>
+        <div class="caption">
+            <h1 class="txt-white">¡La Ciudadanía Propone!</h1>
+            <p class="txt-white " >Por una justicia cercana a la comunidad, moderna, transparente e independiente</p>
+        </div>
+    </div>
+
+
+    <!--CONTENIDO-->
+
+     <!-- que es de Justicia Abierta-->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+
+                    <div style="text-align:justify">
+                        <h3>¿Qué es Justicia Abierta?</h3>
+                        <p style="font-size:18px;line-height:22px">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, diam no-
+                            nummy nibh euismod tincidunt ut laoreet dolore magna al iquam
+                            erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercia-
+                            tion ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div style="text-align:center">
+                        <embed type="video/webm" src="https://youtu.be/jJHiFi5qKSo" width="100%" height="350px">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ¿Qué es Justicia Abierta?-->
+    <div class="section m-0" style="padding-top:65px!important; background-color: #F1F5FB;">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-xl-12 text-center mb-50">
+                  <h3>¿Cómo Funciona?</h3>
+                </div>
+                <div class="row col-lg-11 m-auto">
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-10.png">
+                            <h6 >Paso 1</h6>
+                            <h4 style="height:50px">Registro</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer piscing elit</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-11.png">
+                            <h6 >Paso 2</h6>
+                            <h4 style="height:50px">Sube la Respuesta</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer piscing elit</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-12.png">
+                            <h6 >Paso 3</h6>
+                            <h4 style="height:50px">Publica</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer piscing elit</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-13.png">
+                            <h6 >Paso 4</h6>
+                            <h4 style="height:50px">Promociona</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetuer piscing elit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- propuestas -->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div style="text-align:center">
+                        <h3>Propuestas Ciudadanas</h3>
+                        <p>Te invitamos a filtrar y encontrar propuestas
+                            ciudadanas en las siguientes áreas
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12"> 
+                    <!--coleccion de filtros-->
+                    {% for categoria in collections.categorias %}
+                    <a href="{{categoria.url}}" class="filtros">{{categoria.data.title}}</a>
+                    {% endfor %}
+                    <!--button class="filtros">Cultura y deportes</button>
+                    <button class="filtros">medio ambiente y recursos naturales</button>
+                    <button class="filtros">salud</button>
+                    <button class="filtros">transporte público</button>
+                    <button class="filtros">seguridad y justicia</button>
+                    <button class="filtros">derechos sexuales y reproductivos</button>
+                    <button class="filtros">administración pública</button>
+                    <button class="filtros">economía y trabajo</button>
+                    <button class="filtros">infraestructura</button>
+                    <button class="filtros">seguridad alimenticia y nutricional</button-->
+                </div>
+
+                {% for prop in collections.propuesta %}
+                    {% if prop.data.producto_encuentro == "Si" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a class="filtros">{{prop.data.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.393</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.data.title}}</h5>
+                                <p>{{prop.data.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div>
+                                <div class="botones_finales">
+                                    <a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a>
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if prop.data.producto_encuentro == "No" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a class="filtros">{{prop.data.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.393</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.data.title}}</h5>
+                                <p>{{prop.data.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div>
+                                <div class="botones_finales">
+                                    <a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a>
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <div class="col-lg-4 my-4">
+                    <div class="cuadro_propuesta2">
+                        <div class="tags">
+                            <a class="filtros">salud</a>
+                        </div>
+                        <div class="numero_propuesta">
+                            <p>propuesta N.393</p>
+                        </div>
+                        <div class="contenido">
+                            <h5>Promoción de los Derechos de donación y transplante de órganos y tejidos</h5>
+                            <p>Generacién de una politica robusta y eficaz que permita minimizar las deficiencias actuales, 
+                                conocer exactamente el funcionamiento de unidades de</p>
+                        </div>
+                        <div class="bottom">
+                            <div class="candidaturas">
+                                <h4>4</h4>
+                                <span>candidatura(s) comprometida(s)</span>
+                            </div>
+                            <div class="ciudadanos">
+                                <h4>20</h4>
+                                <span>apoyo(s) ciudadano(s)</span>
+                            </div>
+                            <div class="botones_finales">
+                                <a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a>
+                                <a href="#" class="vermas">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 text-center my-6">
+                    <a class="ver_todo" href="/propuestas/index.html">Ver todas las propuestas</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

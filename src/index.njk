@@ -1,0 +1,211 @@
+---
+permalink: "index.html"
+---
+
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Red Ciudadana</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+
+
+    <!-- slider-start -->
+    <div class="video-container w-100">
+        <video muted autoplay loop>
+            <source src="/assets/SLIDER-RED-JA.mp4" type="video/mp4; "/>        
+        </video>
+        <div class="caption">
+            <h1 class="txt-white">¡La Ciudadanía Propone!</h1>
+            <h3 class="txt-white " >Por una justicia cercana a la comunidad, moderna, transparente e independiente</h3>
+            <br>
+            <a class="ver_todo" href="/nuevapropuesta/index.html">Crear nueva propuesta</a>
+        </div>
+    </div>
+
+
+    <!--CONTENIDO-->
+
+     <!-- que es de Justicia Abierta-->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+
+                    <div style="text-align:justify">
+                        <h3>¿Qué es Justicia Abierta?</h3>
+                        <p style="font-size:18px;line-height:22px">
+                            La Justicia Abierta pretende por medio de la innovación del sistema de 
+                            justicia y los servicios que presta, resolver los problemas del ámbito 
+                            de la justicia o situaciones de extrema injusticia en las que se encuentran 
+                            miembros de la sociedad. 
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div style="text-align:center">
+                        <iframe width="100%" height="330px" src="https://www.youtube.com/embed/jJHiFi5qKSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ¿Qué es Justicia Abierta?-->
+    <div class="section m-0" style="padding-top:65px!important; background-color: #F1F5FB;">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-xl-12 text-center mb-50">
+                  <h3>¿Cómo Funciona?</h3>
+                </div>
+                <div class="row col-lg-11 m-auto">
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-10.png">
+                            <h6 >Paso 1</h6>
+                            <h4 style="height:50px">Registro</h4>
+                            <p>Crea un usuario y contraseña, para lo cual necesitarás ingresar tu nombre y correo electrónico.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-11.png">
+                            <h6 >Paso 2</h6>
+                            <h4 style="height:50px">Sube la Respuesta</h4>
+                            <p>Redacta qué problema pretendes solucionar con tu propuesta, su causa y la propuesta. Además, necesitarás completar todos los datos que se solicitan en la plataforma.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-12.png">
+                            <h6 >Paso 3</h6>
+                            <h4 style="height:50px">Publica</h4>
+                            <p>Luego de completar el paso 2, seleciona el botón de “envíanos tu propuesta”, y ¡listo! La propuesta será publicada en la plataforma de Red Ciudadana. </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <img style="width:150px" class="mb-20" src="/assets/01_ICONOS/PROPUESTAS JA_02-13.png">
+                            <h6 >Paso 4</h6>
+                            <h4 style="height:50px">Promociona</h4>
+                            <p>Comparte tu propuesta en redes sociales y así la darás a conocer. Además, puedes apoyar otras propuestas que te interesen.  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- propuestas -->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div style="text-align:center">
+                        <h3>Propuestas Ciudadanas</h3>
+                        <p>Te invitamos a filtrar y encontrar propuestas
+                            ciudadanas en las siguientes áreas
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 my-4"> 
+                    <!--coleccion de filtros-->
+                    <div class="row">
+                        {% for categoria in collections.categorias %}
+                        <a href="{{categoria.url}}" class="filtros my-1">{{categoria.data.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% for prop in propuestas | limit(3) %}
+                    {% if prop.encuentro == "Si" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a href="/categorias/{{prop.categoria | slug}}" class="filtros">{{prop.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.393</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.titulo}}</h5>
+                                <p>{{prop.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <!--div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div-->
+                                <div class="botones_finales">
+                                    <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if prop.encuentro == "No" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a href="/categorias/{{prop.categoria | slug}}" class="filtros">{{prop.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.393</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.titulo}}</h5>
+                                <p>{{prop.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <!--div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div-->
+                                <div class="botones_finales">
+                                    <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <div class="col-lg-12 text-center my-6">
+                    <a class="ver_todo" href="/propuestas/page-0/index.html">Ver todas las propuestas</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}
